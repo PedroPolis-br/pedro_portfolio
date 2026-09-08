@@ -2,6 +2,8 @@
 
 Versão completa e independente do portfólio de Pedro Lucas. O projeto utiliza React, TypeScript e Vite e não depende de nenhum serviço ou componente exclusivo do ChatGPT Sites.
 
+O site inclui conteúdo completo em português e inglês, português inicial e seletor de idioma, contato direto pelo WhatsApp, favicon autoral e menu mobile com camada opaca.
+
 ## Requisitos
 
 - Node.js 22.13 ou superior
@@ -101,3 +103,7 @@ Depois, publique o novo conteúdo da pasta `dist`.
 - O botão de contato abre o cliente de e-mail do visitante.
 - O botão **COPY EMAIL** usa a API de área de transferência do navegador e funciona em HTTPS ou localhost.
 - As animações respeitam a preferência `prefers-reduced-motion` do dispositivo.
+
+## Atualização visual
+
+Português é sempre o idioma inicial; EN/PT alterna durante a visita. Identidade editável em public/brand/. Imagens WebP locais responsivas em public/projects/, com carregamento sob demanda. MesaPro é uma visualização conceitual criada para o portfólio. A seção de processo usa posicionamento sticky em CSS; respeita redução de movimento. A animação do canvas pausa fora da tela e em abas inativas.
