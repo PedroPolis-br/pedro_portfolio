@@ -1,4 +1,4 @@
-# Pedro Lucas — Creative Developer
+# Pedro Lucas — Desenvolvedor Full Stack (PHP & Banco de Dados)
 
 Versão completa e independente do portfólio de Pedro Lucas. O projeto utiliza React, TypeScript e Vite e não depende de nenhum serviço ou componente exclusivo do ChatGPT Sites.
 
@@ -72,7 +72,10 @@ O arquivo `.htaccess` é incluído automaticamente na compilação e funciona em
 .
 ├── public/              # Arquivos públicos e configuração Apache
 ├── src/
-│   ├── App.tsx          # Conteúdo, interações e canvas animado
+│   ├── App.tsx          # Conteúdo (PT/EN), seções e interações
+│   ├── data/
+│   │   ├── phpCase.ts   # Case em destaque do projeto PHP (prints + estrutura)
+│   │   └── profile.ts   # E-mail, WhatsApp, GitHub, LinkedIn e currículo
 │   ├── main.tsx         # Inicialização da aplicação
 │   └── styles.css       # Design, animações e responsividade
 ├── dist/                # Versão compilada pronta para hospedagem
@@ -100,10 +103,24 @@ Depois, publique o novo conteúdo da pasta `dist`.
 ## Observações
 
 - O site é inteiramente estático e não exige banco de dados ou variáveis de ambiente.
-- O botão de contato abre o cliente de e-mail do visitante.
+- O botão principal de contato abre o WhatsApp com uma mensagem pronta; o e-mail fica na área de recrutadores.
 - O botão **COPY EMAIL** usa a API de área de transferência do navegador e funciona em HTTPS ou localhost.
 - As animações respeitam a preferência `prefers-reduced-motion` do dispositivo.
 
 ## Atualização visual
 
 Português é sempre o idioma inicial; EN/PT alterna durante a visita. Identidade editável em public/brand/. Imagens WebP locais responsivas em public/projects/, com carregamento sob demanda. MesaPro é uma visualização conceitual criada para o portfólio. A seção de processo usa posicionamento sticky em CSS; respeita redução de movimento. A animação do canvas pausa fora da tela e em abas inativas.
+
+## Case em destaque: Vértice Gestão (demonstrativo)
+
+Projeto demonstrativo de sistema de gestão em PHP, com telas e dados fictícios criados para o portfólio. Tudo fica em `src/data/phpCase.ts`:
+
+- `screenshots`: imagens em `public/projects/php/` (a primeira é a principal; as demais viram miniaturas).
+- `tree`: estrutura de pastas exibida no case. Pastas terminam com `/` e `# texto` vira comentário.
+- `role` e `stack`: destaques técnicos e tecnologias.
+
+Os trechos de código (PHP e SQL) exibidos na seção "Stack" ficam em `src/App.tsx` (`PHP_SAMPLE` e `SQL_SAMPLE`).
+
+## Links e currículo
+
+Em `src/data/profile.ts`: preencha `linkedin` e, se quiser o botão de currículo, coloque o PDF em `public/` e informe o caminho em `cv`. Campos vazios ficam ocultos.
