@@ -1,4 +1,4 @@
-# Pedro Lucas — Creative Developer
+# Pedro Lucas — Desenvolvedor Full Stack (PHP & Banco de Dados)
 
 Versão completa e independente do portfólio de Pedro Lucas. O projeto utiliza React, TypeScript e Vite e não depende de nenhum serviço ou componente exclusivo do ChatGPT Sites.
 
@@ -72,7 +72,10 @@ O arquivo `.htaccess` é incluído automaticamente na compilação e funciona em
 .
 ├── public/              # Arquivos públicos e configuração Apache
 ├── src/
-│   ├── App.tsx          # Conteúdo, interações e canvas animado
+│   ├── App.tsx          # Conteúdo (PT/EN), seções e interações
+│   ├── data/
+│   │   ├── phpCase.ts   # Case em destaque do projeto PHP (prints + estrutura)
+│   │   └── profile.ts   # E-mail, WhatsApp, GitHub, LinkedIn e currículo
 │   ├── main.tsx         # Inicialização da aplicação
 │   └── styles.css       # Design, animações e responsividade
 ├── dist/                # Versão compilada pronta para hospedagem
@@ -100,10 +103,25 @@ Depois, publique o novo conteúdo da pasta `dist`.
 ## Observações
 
 - O site é inteiramente estático e não exige banco de dados ou variáveis de ambiente.
-- O botão de contato abre o cliente de e-mail do visitante.
+- O botão principal de contato abre o WhatsApp com uma mensagem pronta; o e-mail fica na área de recrutadores.
 - O botão **COPY EMAIL** usa a API de área de transferência do navegador e funciona em HTTPS ou localhost.
 - As animações respeitam a preferência `prefers-reduced-motion` do dispositivo.
 
 ## Atualização visual
 
 Português é sempre o idioma inicial; EN/PT alterna durante a visita. Identidade editável em public/brand/. Imagens WebP locais responsivas em public/projects/, com carregamento sob demanda. MesaPro é uma visualização conceitual criada para o portfólio. A seção de processo usa posicionamento sticky em CSS; respeita redução de movimento. A animação do canvas pausa fora da tela e em abas inativas.
+
+## Case do projeto PHP (cliente sob confidencialidade)
+
+Tudo fica em `src/data/phpCase.ts`:
+
+1. Coloque os prints em `public/projects/php/` (dados fictícios ou borrados, de preferência `.webp` com ~1600px).
+2. Liste-os em `screenshots` — o primeiro é a imagem principal; os demais viram miniaturas clicáveis.
+3. Cole a árvore de pastas em `tree` (saída de `tree /A`). Pastas terminadas em `/` ficam destacadas e `# texto` vira comentário.
+4. Revise `role` e `stack` para refletir exatamente o que você fez.
+
+Enquanto `screenshots` ou `tree` estiverem vazios, o site mostra um aviso "em breve".
+
+## Links e currículo
+
+Em `src/data/profile.ts`: preencha `linkedin` e, se quiser o botão de currículo, coloque o PDF em `public/` e informe o caminho em `cv`. Campos vazios ficam ocultos.
