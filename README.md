@@ -111,16 +111,15 @@ Depois, publique o novo conteúdo da pasta `dist`.
 
 Português é sempre o idioma inicial; EN/PT alterna durante a visita. Identidade editável em public/brand/. Imagens WebP locais responsivas em public/projects/, com carregamento sob demanda. MesaPro é uma visualização conceitual criada para o portfólio. A seção de processo usa posicionamento sticky em CSS; respeita redução de movimento. A animação do canvas pausa fora da tela e em abas inativas.
 
-## Case do projeto PHP (cliente sob confidencialidade)
+## Case em destaque: Vértice Gestão (demonstrativo)
 
-Tudo fica em `src/data/phpCase.ts`:
+Projeto demonstrativo de sistema de gestão em PHP, com telas e dados fictícios criados para o portfólio. Tudo fica em `src/data/phpCase.ts`:
 
-1. Coloque os prints em `public/projects/php/` (dados fictícios ou borrados, de preferência `.webp` com ~1600px).
-2. Liste-os em `screenshots` — o primeiro é a imagem principal; os demais viram miniaturas clicáveis.
-3. Cole a árvore de pastas em `tree` (saída de `tree /A`). Pastas terminadas em `/` ficam destacadas e `# texto` vira comentário.
-4. Revise `role` e `stack` para refletir exatamente o que você fez.
+- `screenshots`: imagens em `public/projects/php/` (a primeira é a principal; as demais viram miniaturas).
+- `tree`: estrutura de pastas exibida no case. Pastas terminam com `/` e `# texto` vira comentário.
+- `role` e `stack`: destaques técnicos e tecnologias.
 
-Enquanto `screenshots` ou `tree` estiverem vazios, o site mostra um aviso "em breve".
+Os trechos de código (PHP e SQL) exibidos na seção "Stack" ficam em `src/App.tsx` (`PHP_SAMPLE` e `SQL_SAMPLE`).
 
 ## Links e currículo
 

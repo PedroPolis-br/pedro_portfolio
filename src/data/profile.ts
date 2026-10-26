@@ -7,7 +7,7 @@ export const profile = {
   email: "py.pedropinheir@gmail.com",
   whatsapp: "5527997597655",
   whatsappLabel: "+55 27 99759-7655",
-  github: "https://github.com/PedroPolis-br",
+  github: "",
   linkedin: "",
   cv: "",
 };

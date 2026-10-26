@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { ArrowDownRight, ArrowUpRight, Briefcase, Check, Code2, Database, FileDown, Layers3, Lock, Menu, ShieldCheck, Sparkles, Users, X } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Briefcase, Check, Code2, Database, Layers3, Lock, Menu, ShieldCheck, Sparkles, Users, X } from "lucide-react";
 import { phpCase } from "./data/phpCase";
 import { profile, whatsappLink } from "./data/profile";
 
@@ -7,7 +7,7 @@ type Language = "en" | "pt";
 
 const content = {
   en: {
-    nav: [{ label: "Work", id: "work" }, { label: "Stack", id: "stack" }, { label: "Experience", id: "experience" }, { label: "About", id: "about" }, { label: "Contact", id: "contact" }],
+    nav: [{ label: "Work", id: "work" }, { label: "Stack", id: "stack" }, { label: "About", id: "about" }, { label: "Contact", id: "contact" }],
     available: "Open to projects & roles",
     toggle: "Mudar para português",
     menu: "Toggle menu",
@@ -15,7 +15,7 @@ const content = {
     kicker: "Full stack developer · PHP & Databases",
     location: "Brazil · Remote, worldwide",
     hero: ["Code", "that moves", "business."],
-    heroText: "I build web systems, databases and custom websites with PHP, SQL and React. I work on a production ERP with a dev team — and help companies as a freelancer.",
+    heroText: "I build PHP web systems, databases and custom websites — with well-structured business rules and clear interfaces. Open to freelance projects and new opportunities.",
     ctaClient: "I have a project",
     ctaRecruiter: "I'm hiring",
     explore: "Explore selected work",
@@ -23,7 +23,7 @@ const content = {
     audienceTitle: <>Two ways<br/><i>to work together.</i></>,
     audience: [
       { key: "client", title: "Companies & clients", lead: "Need a website, a system or an automation?", items: ["Fast, conversion-focused websites and landing pages", "Custom systems, dashboards and internal tools", "Reports, integrations and data migration", "Security audits for existing sites and systems"], cta: "Request a quote" },
-      { key: "recruiter", title: "Recruiters & teams", lead: "Looking for a developer to join your team?", items: ["Daily work on a production ERP (PHP + SQL)", "Team workflow with version control (SVN / Git)", "Stored procedures and custom reports in Firebird", "Modern front-end with React + TypeScript"], cta: "See experience" },
+      { key: "recruiter", title: "Recruiters & teams", lead: "Looking for a developer to join your team?", items: ["PHP web systems with an organized architecture (MVC)", "Advanced SQL: procedures, reports and migrations", "Team workflow with version control (Git / SVN)", "Modern front-end with React + TypeScript"], cta: "See projects" },
     ],
     selected: "Selected work",
     built: <>Built for impact.<br/><i>Engineered to last.</i></>,
@@ -43,10 +43,10 @@ const content = {
       { title: "Front-end", items: ["React", "TypeScript", "JavaScript", "HTML · CSS", "Vite"] },
       { title: "Tools", items: ["Git", "SVN", "FastReport", "Delphi", "Vercel"] },
     ],
-    sqlTitle: "Databases in practice",
-    sqlText: "Much of my day-to-day happens inside the database: selectable stored procedures that consolidate data by period, feeding custom reports clients use to make decisions.",
-    sqlPoints: ["Procedures in Firebird PSQL", "Aggregations and percentage breakdowns", "Reports in FastReport fed by SQL", "Respecting existing schema — new objects, never breaking ones"],
-    sqlNote: "Illustrative example with fictitious tables",
+    sqlTitle: "PHP + SQL in practice",
+    sqlText: "The part of the system that has to be right lives in the back-end and the database: PHP repositories with prepared statements calling stored procedures that consolidate data for reports.",
+    sqlPoints: ["Repositories with PDO and prepared statements", "Selectable stored procedures (Firebird PSQL)", "Aggregations and percentage breakdowns", "Reports fed directly by SQL"],
+    sqlNote: "From the Vértice Gestão demo project · fictitious tables",
     servicesTitle: "Services",
     services: [
       { title: "Websites & landing pages", text: "Fast, responsive websites built to turn visitors into contacts.", tools: "Front-end · SEO · Performance" },
@@ -54,20 +54,12 @@ const content = {
       { title: "Data & reports", text: "Queries, procedures, reports and migrations that make data useful.", tools: "SQL · Firebird · FastReport" },
       { title: "Security audit", text: "A review of sites and systems to find and fix vulnerabilities before someone else does.", tools: "Review · Hardening · Report" },
     ],
-    expLabel: "Experience",
-    expTitle: <>Real systems,<br/><i>real users.</i></>,
-    experience: [
-      { org: "Configure Software", role: "Developer", when: "Current · Full-time", items: ["Develops features for the company's PHP web system as part of the dev team, versioned with SVN.", "Builds custom reports for client companies: stored procedures in Firebird plus FastReport layouts imported into the ERP.", "Turns real client requests into delivered features — from requirement to production."] },
-      { org: "Freelance", role: "Full stack developer", when: "Current", items: ["Websites and systems for local businesses and professionals.", "Own products: PID Gestão (legal operations) and DesafYou (challenge app).", "Security audits for existing websites and systems."] },
-    ],
-    expFacts: ["Remote-ready", "UTC−03", "Team & solo work"],
-    github: "GitHub",
     linkedin: "LinkedIn",
     cv: "Download CV",
     about: "About",
     aboutTitle: <>Developer by craft.<br/><i>Problem-solver by nature.</i></>,
-    aboutOne: "I'm Pedro Lucas, a Brazilian developer from Espírito Santo. My work spans ERP systems, databases, reports, migrations, websites and AI-powered products.",
-    aboutTwo: "Working on a production system taught me to care about what happens behind the screen: data that has to add up, code others will maintain, and users who depend on it every day. I bring that same care to every freelance project.",
+    aboutOne: "I'm Pedro Lucas, a Brazilian developer from Espírito Santo. My work spans management systems, databases, reports, migrations, websites and AI-powered products.",
+    aboutTwo: "Working on systems in production taught me to care about what happens behind the screen: data that has to add up, code others will maintain, and users who depend on it every day. I bring that same care to every freelance project.",
     curious: <>Curious by default<br/>Obsessed with clarity</>,
     facts: ["Espírito Santo, Brazil", "UTC−03", "Remote collaboration"],
     marquee: "Let's build something that works",
@@ -76,8 +68,8 @@ const content = {
     talk: "Let's talk",
     contactClient: "Projects & quotes",
     contactClientText: "Reply on WhatsApp, usually within the day.",
-    contactRecruiter: "Recruiters",
-    contactRecruiterText: "Email, GitHub and résumé.",
+    contactRecruiter: "Recruiters & companies",
+    contactRecruiterText: "Prefer email? Write to me anytime.",
     waClient: "Hi Pedro! I'd like to talk about a project.",
     copied: "Email copied ✓",
     copy: "Copy email",
@@ -89,7 +81,7 @@ const content = {
     ] },
   },
   pt: {
-    nav: [{ label: "Projetos", id: "work" }, { label: "Stack", id: "stack" }, { label: "Experiência", id: "experience" }, { label: "Sobre", id: "about" }, { label: "Contato", id: "contact" }],
+    nav: [{ label: "Projetos", id: "work" }, { label: "Stack", id: "stack" }, { label: "Sobre", id: "about" }, { label: "Contato", id: "contact" }],
     available: "Aberto a projetos e vagas",
     toggle: "Switch to English",
     menu: "Abrir ou fechar menu",
@@ -97,7 +89,7 @@ const content = {
     kicker: "Desenvolvedor full stack · PHP & Banco de dados",
     location: "Brasil · Remoto, para qualquer lugar",
     hero: ["Código", "que move", "negócios."],
-    heroText: "Desenvolvo sistemas web, bancos de dados e sites sob medida com PHP, SQL e React. Atuo em equipe num ERP em produção — e atendo empresas como freelancer.",
+    heroText: "Desenvolvo sistemas web em PHP, bancos de dados e sites sob medida — com regras de negócio bem estruturadas e interfaces claras. Aberto a projetos freelance e a novas oportunidades.",
     ctaClient: "Tenho um projeto",
     ctaRecruiter: "Sou recrutador",
     explore: "Conheça os projetos",
@@ -105,7 +97,7 @@ const content = {
     audienceTitle: <>Dois caminhos<br/><i>para trabalharmos juntos.</i></>,
     audience: [
       { key: "client", title: "Empresas e clientes", lead: "Precisa de um site, um sistema ou uma automação?", items: ["Sites e landing pages rápidos, focados em conversão", "Sistemas sob medida, painéis e ferramentas internas", "Relatórios, integrações e migração de dados", "Auditoria de segurança em sites e sistemas"], cta: "Pedir orçamento" },
-      { key: "recruiter", title: "Recrutadores e times", lead: "Procurando um dev para o seu time?", items: ["Dia a dia num ERP em produção (PHP + SQL)", "Trabalho em equipe com versionamento (SVN / Git)", "Stored procedures e relatórios em Firebird", "Front-end moderno com React + TypeScript"], cta: "Ver experiência" },
+      { key: "recruiter", title: "Recrutadores e times", lead: "Procurando um dev para o seu time?", items: ["Sistemas web em PHP com arquitetura organizada (MVC)", "SQL avançado: procedures, relatórios e migrações", "Trabalho em equipe com versionamento (Git / SVN)", "Front-end moderno com React + TypeScript"], cta: "Ver projetos" },
     ],
     selected: "Projetos selecionados",
     built: <>Criados para impactar.<br/><i>Construídos para durar.</i></>,
@@ -125,10 +117,10 @@ const content = {
       { title: "Front-end", items: ["React", "TypeScript", "JavaScript", "HTML · CSS", "Vite"] },
       { title: "Ferramentas", items: ["Git", "SVN", "FastReport", "Delphi", "Vercel"] },
     ],
-    sqlTitle: "Banco de dados na prática",
-    sqlText: "Boa parte do meu dia acontece dentro do banco: procedures selecionáveis que consolidam dados por período e alimentam relatórios personalizados que os clientes usam para decidir.",
-    sqlPoints: ["Procedures em Firebird PSQL", "Agregações e cálculos de participação (%)", "Relatórios no FastReport alimentados por SQL", "Respeito ao schema existente — objetos novos, sem quebrar os antigos"],
-    sqlNote: "Exemplo ilustrativo com tabelas fictícias",
+    sqlTitle: "PHP + SQL na prática",
+    sqlText: "A parte do sistema que precisa estar certa mora no back-end e no banco: repositórios PHP com prepared statements chamando stored procedures que consolidam os dados dos relatórios.",
+    sqlPoints: ["Repositórios com PDO e prepared statements", "Stored procedures selecionáveis (Firebird PSQL)", "Agregações e cálculos de participação (%)", "Relatórios alimentados direto por SQL"],
+    sqlNote: "Do projeto demonstrativo Vértice Gestão · tabelas fictícias",
     servicesTitle: "Serviços",
     services: [
       { title: "Sites e landing pages", text: "Sites rápidos e responsivos, feitos para transformar visitantes em contatos.", tools: "Front-end · SEO · Performance" },
@@ -136,20 +128,12 @@ const content = {
       { title: "Dados e relatórios", text: "Consultas, procedures, relatórios e migrações que tornam os dados úteis.", tools: "SQL · Firebird · FastReport" },
       { title: "Auditoria de segurança", text: "Revisão de sites e sistemas para encontrar e corrigir falhas antes que alguém as explore.", tools: "Análise · Correções · Relatório" },
     ],
-    expLabel: "Experiência",
-    expTitle: <>Sistemas reais,<br/><i>usuários reais.</i></>,
-    experience: [
-      { org: "Configure Software", role: "Desenvolvedor", when: "Atual · CLT", items: ["Desenvolvimento de funcionalidades no sistema web da empresa, em PHP, junto ao time de desenvolvimento, com versionamento via SVN.", "Relatórios personalizados para empresas clientes: stored procedures no Firebird e layouts FastReport importados no ERP.", "Transformo pedidos reais de clientes em funcionalidades entregues — do requisito à produção."] },
-      { org: "Freelancer", role: "Desenvolvedor full stack", when: "Atual", items: ["Sites e sistemas para empresas locais e profissionais liberais.", "Produtos próprios: PID Gestão (operações jurídicas) e DesafYou (app de desafios).", "Auditoria de segurança em sites e sistemas existentes."] },
-    ],
-    expFacts: ["Pronto para remoto", "UTC−03", "Em equipe ou solo"],
-    github: "GitHub",
     linkedin: "LinkedIn",
     cv: "Baixar currículo",
     about: "Sobre",
     aboutTitle: <>Desenvolvedor por ofício.<br/><i>Solucionador por natureza.</i></>,
-    aboutOne: "Sou Pedro Lucas, desenvolvedor do Espírito Santo. Minha experiência passa por ERPs, bancos de dados, relatórios, migrações, sites e produtos com inteligência artificial.",
-    aboutTwo: "Trabalhar num sistema em produção me ensinou a cuidar do que acontece por trás da tela: dados que precisam bater, código que outras pessoas vão manter e usuários que dependem dele todo dia. Levo esse mesmo cuidado para cada projeto freelance.",
+    aboutOne: "Sou Pedro Lucas, desenvolvedor do Espírito Santo. Minha experiência passa por sistemas de gestão, bancos de dados, relatórios, migrações, sites e produtos com inteligência artificial.",
+    aboutTwo: "Trabalhar com sistemas em produção me ensinou a cuidar do que acontece por trás da tela: dados que precisam bater, código que outras pessoas vão manter e usuários que dependem dele todo dia. Levo esse mesmo cuidado para cada projeto freelance.",
     curious: <>Curioso por natureza<br/>Obcecado por clareza</>,
     facts: ["Espírito Santo, Brasil", "UTC−03", "Colaboração remota"],
     marquee: "Vamos construir algo que funciona",
@@ -158,8 +142,8 @@ const content = {
     talk: "Fale comigo",
     contactClient: "Projetos e orçamentos",
     contactClientText: "Resposta pelo WhatsApp, normalmente no mesmo dia.",
-    contactRecruiter: "Recrutadores",
-    contactRecruiterText: "E-mail, GitHub e currículo.",
+    contactRecruiter: "Recrutadores e empresas",
+    contactRecruiterText: "Prefere e-mail? Me escreva quando quiser.",
     waClient: "Olá, Pedro! Gostaria de conversar sobre um projeto.",
     copied: "E-mail copiado ✓",
     copy: "Copiar e-mail",
@@ -199,24 +183,55 @@ BEGIN
   END
 END`;
 
-const SQL_KEYWORDS = /\b(CREATE|OR|ALTER|PROCEDURE|RETURNS|AS|DECLARE|VARIABLE|BEGIN|END|SELECT|FROM|WHERE|BETWEEN|AND|INTO|FOR|JOIN|ON|GROUP|BY|ORDER|DESC|DO|SUSPEND|IIF|COALESCE|SUM|COUNT)\b/g;
-const SQL_TYPES = /\b(DATE|VARCHAR|INTEGER|NUMERIC)\b/g;
+const PHP_SAMPLE = `<?php
+declare(strict_types=1);
 
-function SqlCode({ code }: { code: string }) {
+namespace App\\Repositories;
+
+use PDO;
+
+final class PedidoRepository
+{
+    public function __construct(private PDO $db) {}
+
+    /** Resumo de vendas por forma de pagamento no período. */
+    public function resumoPorPagamento(string $inicio, string $fim): array
+    {
+        $sql = 'SELECT * FROM RESUMO_VENDAS_PERIODO(:inicio, :fim)';
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['inicio' => $inicio, 'fim' => $fim]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}`;
+
+const KEYWORDS = "CREATE|OR|ALTER|PROCEDURE|RETURNS|AS|DECLARE|VARIABLE|BEGIN|END|SELECT|FROM|WHERE|BETWEEN|AND|INTO|FOR|JOIN|ON|GROUP|BY|ORDER|DESC|DO|SUSPEND|IIF|COALESCE|SUM|COUNT|declare|namespace|use|final|class|public|private|function|return|new|array|string|int|bool|void";
+const TYPES = "DATE|VARCHAR|INTEGER|NUMERIC|PDO|strict_types";
+
+function CodeBlock({ code }: { code: string }) {
+  const re = new RegExp(`(\\/\\*\\*.*?\\*\\/|\\/\\/.*$|--.*$)|('[^']*')|(\\$[A-Za-z_]\\w*)|\\b(${KEYWORDS})\\b|\\b(${TYPES})\\b|(:[A-Za-z_]\\w*)|(\\b\\d+(?:,\\d+)?\\b)|(<\\?php)`, "g");
+  const classes = ["", "c", "s", "v", "k", "t", "p", "n", "k"];
   const lines = code.split("\n").map((line, i) => {
     const parts: ReactNode[] = [];
-    const re = new RegExp(`(${SQL_KEYWORDS.source})|(${SQL_TYPES.source})|(:[A-Z_]+)|(\\b\\d+(?:,\\d+)?\\b)`, "g");
     let last = 0; let m: RegExpExecArray | null; let k = 0;
+    re.lastIndex = 0;
     while ((m = re.exec(line))) {
       if (m.index > last) parts.push(line.slice(last, m.index));
-      const cls = m[1] ? "k" : m[3] ? "t" : m[5] ? "p" : "n";
-      parts.push(<span className={cls} key={k++}>{m[0]}</span>);
+      const g = m.findIndex((v, idx) => idx > 0 && v !== undefined);
+      parts.push(<span className={classes[g]} key={k++}>{m[0]}</span>);
       last = m.index + m[0].length;
     }
     parts.push(line.slice(last));
     return <span className="code-line" key={i}>{parts}{"\n"}</span>;
   });
   return <pre className="sql-code" tabIndex={0}><code>{lines}</code></pre>;
+}
+
+function CodeTabs({ note }: { note: string }) {
+  const files = [{ name: "PedidoRepository.php", code: PHP_SAMPLE }, { name: "resumo_vendas_periodo.sql", code: SQL_SAMPLE }];
+  const [tab, setTab] = useState(0);
+  return <div className="sql-window"><div className="sql-window-bar"><i/><i/><i/><div className="code-tabs" role="tablist">{files.map((f, i) => <button key={f.name} role="tab" aria-selected={tab === i} className={tab === i ? "active" : ""} onClick={() => setTab(i)}>{f.name}</button>)}</div></div><CodeBlock code={files[tab].code}/><small>{note}</small></div>;
 }
 
 function FolderTree({ tree }: { tree: string }) {
@@ -319,7 +334,6 @@ export default function Home() {
   const copyEmail = async () => { try { await navigator.clipboard.writeText(profile.email); setCopied("ok"); } catch { setCopied("fail"); } setTimeout(() => setCopied(""), 1800); };
   const waClient = whatsappLink(t.waClient);
   const recruiterLinks = [
-    profile.github && { href: profile.github, label: t.github },
     profile.linkedin && { href: profile.linkedin, label: t.linkedin },
   ].filter(Boolean) as { href: string; label: string }[];
 
@@ -327,31 +341,27 @@ export default function Home() {
     <div className="preloader" aria-hidden="true"><span>PL</span><i/></div><div className="noise" aria-hidden="true"/><div className="cursor" ref={cursor} aria-hidden="true"/><div className="cursor-dot" ref={cursorDot} aria-hidden="true"/><div className="scroll-progress" aria-hidden="true"/>
     <header className={`nav-shell${menuOpen ? " menu-open" : ""}${scrolled ? " scrolled" : ""}`}><a href="#top" className="logo" aria-label={t.home}><img src="/brand/pl-mark.svg" width="44" height="44" alt=""/><span className="brand-name">PEDRO LUCAS<small>PHP · SQL · REACT</small></span></a><nav id="main-nav" className={menuOpen ? "nav-links open" : "nav-links"}>{t.nav.map(item => <a href={`#${item.id}`} onClick={() => setMenuOpen(false)} key={item.id}>{item.label}</a>)}</nav><div className="nav-status"><i/> {t.available}</div><button className="lang-switch" onClick={changeLanguage} aria-label={t.toggle}><span className={lang === "en" ? "active" : ""}>EN</span><i/><span className={lang === "pt" ? "active" : ""}>PT</span></button><button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={t.menu} aria-expanded={menuOpen} aria-controls="main-nav">{menuOpen ? <X/> : <Menu/>}</button></header>
 
-    <section className="hero" id="top"><div className="hero-grid"/><OrbCanvas/><div className="hero-kicker"><span>{t.kicker}</span><span>{t.location}</span></div><div className="hero-copy"><h1><span className="line"><em>{t.hero[0]}</em></span><span className="line"><em>{t.hero[1]}</em></span><span className="line outline"><em>{t.hero[2]}</em></span></h1><div className="hero-side"><p>{t.heroText}</p><div className="hero-ctas"><a href={waClient} target="_blank" rel="noreferrer" className="btn btn-acid">{t.ctaClient}<ArrowUpRight/></a><a href="#experience" className="btn btn-ghost">{t.ctaRecruiter}<ArrowDownRight/></a></div></div></div><a href="#audience" className="scroll-cue"><span>{t.explore}</span><ArrowDownRight/></a></section>
+    <section className="hero" id="top"><div className="hero-grid"/><OrbCanvas/><div className="hero-kicker"><span>{t.kicker}</span><span>{t.location}</span></div><div className="hero-copy"><h1><span className="line"><em>{t.hero[0]}</em></span><span className="line"><em>{t.hero[1]}</em></span><span className="line outline"><em>{t.hero[2]}</em></span></h1><div className="hero-side"><p>{t.heroText}</p><div className="hero-ctas"><a href={waClient} target="_blank" rel="noreferrer" className="btn btn-acid">{t.ctaClient}<ArrowUpRight/></a><a href="#work" className="btn btn-ghost">{t.ctaRecruiter}<ArrowDownRight/></a></div></div></div><a href="#audience" className="scroll-cue"><span>{t.explore}</span><ArrowDownRight/></a></section>
 
-    <section className="audience section-pad" id="audience"><div className="audience-head reveal"><div className="section-label"><span>01</span> {t.audienceLabel}</div><h2>{t.audienceTitle}</h2></div><div className="audience-grid">{t.audience.map(a => { const Icon = a.key === "client" ? Briefcase : Users; const isClient = a.key === "client"; return <article className={`audience-card reveal ${a.key}`} key={a.key}><Icon className="audience-icon" aria-hidden="true"/><h3>{a.title}</h3><p className="audience-lead">{a.lead}</p><ul className="check-list">{a.items.map(i => <li key={i}><Check aria-hidden="true"/>{i}</li>)}</ul><a className={isClient ? "btn btn-acid" : "btn btn-ghost"} href={isClient ? waClient : "#experience"} {...(isClient ? { target: "_blank", rel: "noreferrer" } : {})}>{a.cta}{isClient ? <ArrowUpRight/> : <ArrowDownRight/>}</a></article>; })}</div></section>
+    <section className="audience section-pad" id="audience"><div className="audience-head reveal"><div className="section-label"><span>01</span> {t.audienceLabel}</div><h2>{t.audienceTitle}</h2></div><div className="audience-grid">{t.audience.map(a => { const Icon = a.key === "client" ? Briefcase : Users; const isClient = a.key === "client"; return <article className={`audience-card reveal ${a.key}`} key={a.key}><Icon className="audience-icon" aria-hidden="true"/><h3>{a.title}</h3><p className="audience-lead">{a.lead}</p><ul className="check-list">{a.items.map(i => <li key={i}><Check aria-hidden="true"/>{i}</li>)}</ul><a className={isClient ? "btn btn-acid" : "btn btn-ghost"} href={isClient ? waClient : "#work"} {...(isClient ? { target: "_blank", rel: "noreferrer" } : {})}>{a.cta}{isClient ? <ArrowUpRight/> : <ArrowDownRight/>}</a></article>; })}</div></section>
 
     <section className="work section-pad" id="work"><div className="work-heading reveal"><div className="section-label"><span>02</span> {t.selected}</div><h2>{t.built}</h2></div><FeaturedCase lang={lang}/><div className="project-list">{t.projects.map(project => <article className={`project-card reveal ${project.accent}`} key={project.title}><div className="project-meta"><span>{project.index}</span><span>{project.type}</span></div><div className="project-visual"><ProjectVisual kind={project.visual} lang={lang}/></div><div className="project-info"><div className="project-title"><h3>{project.title}</h3>{project.href && <a href={project.href} target="_blank" rel="noreferrer" aria-label={`${t.visit} ${project.title}`}><ArrowUpRight/></a>}</div><p>{project.text}</p><div className="tag-row">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div></article>)}</div></section>
 
     <section className="expertise section-pad" id="stack"><div className="section-label reveal"><span>03</span> {t.stackLabel}</div><div className="expertise-intro reveal"><h2>{t.expertiseTitle}</h2><p>{t.expertiseText}</p></div>
       <div className="stack-grid">{t.stackGroups.map(g => <div className="stack-group reveal" key={g.title}><h3>{g.title}</h3><ul>{g.items.map(i => <li key={i}>{i}</li>)}</ul></div>)}</div>
-      <div className="sql-block reveal"><div className="sql-copy"><Database className="sql-icon" aria-hidden="true"/><h3>{t.sqlTitle}</h3><p>{t.sqlText}</p><ul className="check-list">{t.sqlPoints.map(i => <li key={i}><Check aria-hidden="true"/>{i}</li>)}</ul></div><div className="sql-window"><div className="sql-window-bar"><i/><i/><i/><span>resumo_vendas_periodo.sql</span></div><SqlCode code={SQL_SAMPLE}/><small>{t.sqlNote}</small></div></div>
+      <div className="sql-block reveal"><div className="sql-copy"><Database className="sql-icon" aria-hidden="true"/><h3>{t.sqlTitle}</h3><p>{t.sqlText}</p><ul className="check-list">{t.sqlPoints.map(i => <li key={i}><Check aria-hidden="true"/>{i}</li>)}</ul></div><CodeTabs note={t.sqlNote}/></div>
       <h3 className="services-title reveal">{t.servicesTitle}</h3>
       <div className="services">{t.services.map((service, index) => { const Icon = serviceIcons[index]; return <article className="service reveal" key={index}><span>0{index + 1}</span><Icon/><h3>{service.title}</h3><p>{service.text}</p><div>{service.tools}</div></article>; })}</div></section>
 
-    <section className="experience section-pad" id="experience"><div className="exp-head reveal"><div className="section-label"><span>04</span> {t.expLabel}</div><h2>{t.expTitle}</h2><div className="exp-links">{recruiterLinks.map(l => <a key={l.href} href={l.href} target="_blank" rel="noreferrer" className="btn btn-ghost">{l.label}<ArrowUpRight/></a>)}{profile.cv && <a href={profile.cv} download className="btn btn-acid">{t.cv}<FileDown/></a>}</div></div>
-      <ol className="timeline">{t.experience.map(e => <li className="reveal" key={e.org}><div className="tl-when">{e.when}</div><div><h3>{e.org}</h3><p className="tl-role">{e.role}</p><ul>{e.items.map(i => <li key={i}>{i}</li>)}</ul></div></li>)}</ol>
-      <div className="about-facts">{t.expFacts.map(f => <span key={f}>{f}</span>)}</div>
-    </section>
 
     <section className="process section-pad" aria-labelledby="process-title">
-      <div className="process-heading"><div className="section-label"><span>05</span> {t.process.label}</div><h2 id="process-title">{t.process.title}</h2><p>{t.process.text}</p><span className="process-signature">{t.process.signature}</span></div>
+      <div className="process-heading"><div className="section-label"><span>04</span> {t.process.label}</div><h2 id="process-title">{t.process.title}</h2><p>{t.process.text}</p><span className="process-signature">{t.process.signature}</span></div>
       <div className="process-steps">{t.process.steps.map(([n,title,headline,body,meta]) => <article key={n} className={`process-step step-${n}`}><span className="step-number">{n}</span><h3>{title}</h3><h4>{headline}</h4><p>{body}</p><small>{meta}</small></article>)}</div>
     </section>
 
-    <section className="about section-pad" id="about"><div className="about-orbit reveal" aria-hidden="true"><div className="orbit-ring one"/><div className="orbit-ring two"/><div className="orbit-core">PL</div><p>{t.curious}</p></div><div className="about-copy reveal"><div className="section-label"><span>06</span> {t.about}</div><h2>{t.aboutTitle}</h2><p>{t.aboutOne}</p><p>{t.aboutTwo}</p><div className="about-facts">{t.facts.map(fact => <span key={fact}>{fact}</span>)}</div></div></section>
+    <section className="about section-pad" id="about"><div className="about-orbit reveal" aria-hidden="true"><div className="orbit-ring one"/><div className="orbit-ring two"/><div className="orbit-core">PL</div><p>{t.curious}</p></div><div className="about-copy reveal"><div className="section-label"><span>05</span> {t.about}</div><h2>{t.aboutTitle}</h2><p>{t.aboutOne}</p><p>{t.aboutTwo}</p><div className="about-facts">{t.facts.map(fact => <span key={fact}>{fact}</span>)}</div></div></section>
     <section className="marquee" aria-hidden="true"><div><span>{t.marquee}</span><i>✦</i><span>{t.marquee}</span><i>✦</i></div></section>
-    <footer className="contact section-pad" id="contact"><div className="section-label"><span>07</span> {t.start}</div><div className="contact-main"><p>{t.question}</p><a href={waClient} target="_blank" rel="noreferrer" className="contact-link">{t.talk}<span><ArrowUpRight/></span></a></div>
+    <footer className="contact section-pad" id="contact"><div className="section-label"><span>06</span> {t.start}</div><div className="contact-main"><p>{t.question}</p><a href={waClient} target="_blank" rel="noreferrer" className="contact-link">{t.talk}<span><ArrowUpRight/></span></a></div>
       <div className="contact-paths"><div><h3>{t.contactClient}</h3><p>{t.contactClientText}</p><a href={waClient} target="_blank" rel="noreferrer">WhatsApp · {profile.whatsappLabel} ↗</a></div><div><h3>{t.contactRecruiter}</h3><p>{t.contactRecruiterText}</p><a href={`mailto:${profile.email}`}>{profile.email} ↗</a>{recruiterLinks.map(l => <a key={l.href} href={l.href} target="_blank" rel="noreferrer">{l.label} ↗</a>)}{profile.cv && <a href={profile.cv} download>{t.cv} ↓</a>}</div></div>
       <div className="contact-bottom"><button onClick={copyEmail}>{copied === "ok" ? t.copied : copied === "fail" ? t.copyFail : t.copy}</button><span>{lang === "pt" ? "Remoto · UTC−03" : "Remote · UTC−03"}</span><span>© {new Date().getFullYear()} PEDRO LUCAS</span></div></footer>
   </main>;

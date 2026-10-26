@@ -1,61 +1,94 @@
 /**
- * Case em destaque: projeto PHP (cliente sob confidencialidade).
+ * Case em destaque: "Vértice Gestão" — sistema de gestão em PHP DEMONSTRATIVO.
+ * Telas e estrutura foram criadas para o portfólio, com dados fictícios.
  *
- * COMO ATUALIZAR
- * 1. Coloque os prints (com dados fictícios ou borrados) em public/projects/php/
- *    — de preferência .webp, ~1600px de largura.
- * 2. Liste-os em `screenshots` abaixo (o primeiro é a imagem principal).
- * 3. Cole a estrutura de pastas em `tree` (saída do `tree /A` ou digitada à mão).
- *    Termine nomes de pastas com "/" para destacá-las. Linhas com "#" viram comentário.
- * 4. Revise `role` e `stack` para refletir exatamente o que você fez.
- *
- * Enquanto `screenshots` ou `tree` estiverem vazios, o site mostra um aviso
- * "em breve" no lugar — nada quebra.
+ * Para trocar os prints: coloque os arquivos em public/projects/php/ e atualize `screenshots`
+ * (o primeiro é a imagem principal). Em `tree`, pastas terminam com "/" e "# texto" vira comentário.
  */
 
 export type Shot = { src: string; caption: { pt: string; en: string } };
 
 export const phpCase = {
-  screenshots: [] as Shot[],
-  // Exemplo de formato (substitua pela estrutura real, sem arquivos de config/credenciais):
-  // app/
-  // ├── controllers/      # regras de cada tela
-  // ├── models/           # acesso ao banco
-  // └── views/
-  tree: ``,
-  stack: ["PHP", "SQL", "JavaScript", "HTML/CSS", "SVN"],
+  screenshots: [
+    { src: "/projects/php/dashboard.webp", caption: { pt: "Dashboard comercial — indicadores, faturamento mensal e pedidos recentes", en: "Sales dashboard — KPIs, monthly revenue and recent orders" } },
+    { src: "/projects/php/pedidos.webp", caption: { pt: "Pedidos — filtros por status, período e forma de pagamento, com paginação", en: "Orders — filters by status, period and payment method, with pagination" } },
+    { src: "/projects/php/cliente.webp", caption: { pt: "Cadastro de cliente — validações no servidor (CNPJ, duplicidade, CSRF)", en: "Customer form — server-side validation (tax ID, duplicates, CSRF)" } },
+    { src: "/projects/php/relatorio.webp", caption: { pt: "Relatório por forma de pagamento — alimentado por stored procedure", en: "Payment-method report — powered by a stored procedure" } },
+  ] as Shot[],
+  tree: `vertice-gestao/
+├── app/
+│   ├── Controllers/        # recebem a requisição e devolvem a view
+│   │   ├── DashboardController.php
+│   │   ├── PedidoController.php
+│   │   └── RelatorioController.php
+│   ├── Models/             # entidades do domínio
+│   │   ├── Cliente.php
+│   │   └── Pedido.php
+│   ├── Repositories/       # todo SQL fica aqui (PDO + prepared statements)
+│   │   ├── ClienteRepository.php
+│   │   └── PedidoRepository.php
+│   ├── Services/           # regras de negócio e cálculos
+│   │   ├── FaturamentoService.php
+│   │   └── Validacao/
+│   │       └── CnpjValidator.php
+│   ├── Middleware/
+│   │   ├── AuthMiddleware.php
+│   │   └── CsrfMiddleware.php
+│   └── Views/              # templates com escape de saída
+│       ├── layouts/
+│       ├── pedidos/
+│       └── relatorios/
+├── config/
+│   └── database.php        # credenciais lidas do .env
+├── database/
+│   ├── migrations/         # versionamento do schema
+│   ├── procedures/         # stored procedures dos relatórios
+│   │   └── resumo_vendas_periodo.sql
+│   └── seeds/              # dados fictícios para desenvolvimento
+├── public/
+│   ├── index.php           # front controller: única porta de entrada
+│   └── assets/
+├── routes/
+│   └── web.php
+├── tests/
+│   └── Services/
+├── .env.example
+└── composer.json`,
+  stack: ["PHP 8", "PDO", "SQL", "Stored procedures", "MVC", "JavaScript", "Composer"],
   pt: {
-    label: "Case em destaque",
-    type: "Sistema de gestão web · Projeto de cliente",
-    title: "ERP Web em PHP",
+    label: "Projeto demonstrativo",
+    type: "Sistema de gestão comercial em PHP",
+    title: "Vértice Gestão",
     summary:
-      "Sistema web de gestão usado por empresas no dia a dia. Trabalho no desenvolvimento em equipe: novas funcionalidades, regras de negócio e a camada de dados que sustenta tudo isso.",
-    roleTitle: "Meu papel",
+      "Um sistema de gestão comercial — pedidos, clientes e relatórios — criado para mostrar como estruturo aplicações em PHP: regras de negócio separadas da interface, SQL isolado e segurança desde a base.",
+    roleTitle: "Destaques técnicos",
     role: [
-      "Desenvolvimento de funcionalidades e telas em PHP",
-      "Consultas SQL e integração com o banco de dados",
-      "Manutenção e evolução de código legado em produção",
-      "Trabalho em equipe com versionamento via SVN",
+      "Arquitetura MVC com front controller e rotas",
+      "PDO com prepared statements — nenhum SQL concatenado",
+      "Autenticação, proteção CSRF e escape de saída nas views",
+      "Relatórios alimentados por stored procedures no banco",
+      "Migrations e seeds para versionar o schema",
     ],
-    note: "Projeto sob confidencialidade: o código e os dados não são públicos. As telas usam dados fictícios ou ocultados.",
+    note: "Telas e estrutura criadas para demonstração, com dados fictícios.",
     galleryEmpty: "Prints do sistema em breve",
     treeTitle: "Estrutura do projeto",
     treeEmpty: "Estrutura de pastas em breve",
   },
   en: {
-    label: "Featured case",
-    type: "Web management system · Client project",
-    title: "PHP Web ERP",
+    label: "Demo project",
+    type: "Sales management system in PHP",
+    title: "Vértice Gestão",
     summary:
-      "A web management system companies rely on every day. I work on it as part of a team: new features, business rules and the data layer underneath them.",
-    roleTitle: "My role",
+      "A sales management system — orders, customers and reports — built to show how I structure PHP applications: business rules separated from the UI, isolated SQL and security from the ground up.",
+    roleTitle: "Technical highlights",
     role: [
-      "Building features and screens in PHP",
-      "SQL queries and database integration",
-      "Maintaining and evolving legacy code in production",
-      "Team workflow with SVN version control",
+      "MVC architecture with a front controller and routing",
+      "PDO with prepared statements — no concatenated SQL",
+      "Authentication, CSRF protection and output escaping in views",
+      "Reports powered by stored procedures in the database",
+      "Migrations and seeds to version the schema",
     ],
-    note: "Under confidentiality: source code and data are private. Screens shown use fictitious or masked data.",
+    note: "Screens and structure created for demonstration, with fictitious data.",
     galleryEmpty: "System screenshots coming soon",
     treeTitle: "Project structure",
     treeEmpty: "Folder structure coming soon",
